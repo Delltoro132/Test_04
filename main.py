@@ -127,5 +127,4 @@ class TcId01RandomFile(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    logging_info()
     unittest.main(failfast=True, exit=False)
