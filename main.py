@@ -27,9 +27,9 @@ class TcId00ListOfFiles(unittest.TestCase):
 
         # logging in file.log
         if return_value:
-            log.info('OK: Количество секунд, кратно 2')
-        else:
             log.info('NOK: Количество секунд, не кратно 2')
+        else:
+            log.info('OK: Количество секунд, кратно 2')
 
         self.execute()
         self.assertFalse(return_value)
