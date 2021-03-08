@@ -7,6 +7,8 @@ from logging_info import log, logging_info
 import some_func_1
 import some_func_2
 
+logging_info()
+
 
 class MyTestCase(unittest.TestCase):
     def setUp(self):
@@ -62,6 +64,7 @@ class TcId00ListOfFiles(unittest.TestCase):
         self.assertIsInstance(return_value, bool)
 
 
+@unittest.skipIf(some_func_1.prep() < 1, 'skipped')
 class TcId01RandomFile(unittest.TestCase):
 
     def test_01_prep(self):
