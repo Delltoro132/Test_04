@@ -12,7 +12,10 @@ def prep():
     memory_total = memory_info.total
     memory_in_gb = round(memory_total / (1024 * 1024 * 1024))
     int_memory_in_gb = int(memory_in_gb)
-    return int_memory_in_gb
+    if int_memory_in_gb > 1:
+        return int_memory_in_gb, False
+    else:
+        return int_memory_in_gb, True
 
 
 def run():

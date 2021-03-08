@@ -18,6 +18,7 @@ class MyTestCase(unittest.TestCase):
         pass
 
 
+@unittest.skipIf(some_func_1.prep(), 'skipped')
 class TcId00ListOfFiles(unittest.TestCase):
 
     def test_01_prep(self):
@@ -31,7 +32,7 @@ class TcId00ListOfFiles(unittest.TestCase):
             log.info('NOK: Количество секунд, не кратно 2')
 
         self.execute()
-        self.assertTrue(return_value)
+        self.assertFalse(return_value)
 
     @staticmethod
     def test_02_run():
@@ -64,12 +65,12 @@ class TcId00ListOfFiles(unittest.TestCase):
         self.assertIsInstance(return_value, bool)
 
 
-@unittest.skipIf(some_func_1.prep() < 1, 'skipped')
+@unittest.skipIf(some_func_2.prep()[1], 'skipped')
 class TcId01RandomFile(unittest.TestCase):
 
     def test_01_prep(self):
         """Проверка функции some_func_2.prep()"""
-        return_info = some_func_2.prep()
+        return_info = some_func_2.prep()[0]
 
         # logging in file.log
         if return_info > 1:
@@ -108,7 +109,7 @@ class TcId01RandomFile(unittest.TestCase):
 
     def execute(self):
         """Дополнительные проверки для some_func_2.prep()"""
-        return_info = some_func_2.prep()
+        return_info = some_func_2.prep()[0]
 
         # logging in file.log
         if return_info:

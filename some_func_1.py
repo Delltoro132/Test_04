@@ -10,9 +10,9 @@ def prep():
     """
     seconds = round(time.time())
     if seconds % 2 == 0:
-        return True
-    else:
         return False
+    else:
+        return True
 
 
 def run():
