@@ -5,7 +5,7 @@ import psutil
 
 def prep():
     """
-    Высчитывает кол-во оперативной памяти на машине
+    Рассчитывает кол-во оперативной памяти на машине
     :return: list[int(8), True]
     """
     memory_info = psutil.virtual_memory()
