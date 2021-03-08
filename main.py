@@ -18,7 +18,8 @@ class MyTestCase(unittest.TestCase):
         pass
 
 
-@unittest.skipIf(some_func_1.prep(), 'skipped')
+@unittest.skipIf(some_func_1.prep(),
+                 'NOK: TcId00ListOfFiles не выполнен так-как test_01_prep не удовлетворяет условию.')
 class TcId00ListOfFiles(unittest.TestCase):
 
     def test_01_prep(self):
@@ -65,7 +66,8 @@ class TcId00ListOfFiles(unittest.TestCase):
         self.assertIsInstance(return_value, bool)
 
 
-@unittest.skipIf(some_func_2.prep()[1], 'skipped')
+@unittest.skipIf(some_func_2.prep()[1],
+                 'NOK: TcId01RandomFile не выполнен так-как test_01_prep не удовлетворяет условию.')
 class TcId01RandomFile(unittest.TestCase):
 
     def test_01_prep(self):
