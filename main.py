@@ -52,8 +52,7 @@ class TcId00ListOfFiles(unittest.TestCase):
         pass
 
     def execute(self):
-        """Дополнительные проверки для some_func_1.prep()"""
-        return_value = some_func_1.prep()
+        """Дополнительные проверки для some_func_1.prep()"""       
 
         # logging in file.log
         if return_value is not None:
