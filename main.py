@@ -9,6 +9,11 @@ import some_func_2
 
 logging_info()
 
+# Эта функция вызывается дважду, в момент проверки на пропуск и внутри теста.
+# Иногда это вызывает ошибку т.к. 2 этих вызыва могут составлять более 1 с.
+# Это вызывает ошибку т.к. перый вызов может быть Fals, а вызов внутри теста True
+# Поэтому вызываю ее тут 1 раз.
+return_value = some_func_1.prep()
 
 class MyTestCase(unittest.TestCase):
     def setUp(self):
@@ -18,13 +23,12 @@ class MyTestCase(unittest.TestCase):
         pass
 
 
-@unittest.skipIf(some_func_1.prep(),
+@unittest.skipIf(return_value,
                  'NOK: TcId00ListOfFiles не выполнен так-как test_01_prep не удовлетворяет условию.')
 class TcId00ListOfFiles(unittest.TestCase):
 
     def test_01_prep(self):
-        """Проверка функции some_func_1.prep()"""
-        return_value = some_func_1.prep()
+        """Проверка функции some_func_1.prep()"""        
 
         # logging in file.log
         if return_value:
